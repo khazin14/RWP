@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}Dosen{% endblock %}
+
+{% block content %}
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Master Data Dosen</h1>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">    
+    <div class="card-header py-3">
+      <a href="/dosen/create" class="btn btn-sm btn-primary float-right"> <i class="fa fa-plus"></i> Tambah Data</a>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>NIDN</th>
+              <th>Program Studi</th>
+              <th><i class="fa fa-cogs"></i></th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+                <th>Nama</th>
+                <th>NIDN</th>
+                <th>Program Studi</th>
+                <th><i class="fa fa-cogs"></i></th>
+            </tr>
+          </tfoot>
+          <tbody>
+              {% for dosen in data %}
+              <tr>
+                <td>{{ dosen[1] }}</td>
+                <td>{{ dosen[2] }}</td>
+                <td>{{ dosen[3] }}</td>
+                <td>
+                    <a href="/dosen/edit/{{ dosen[0] }}" class="btn btn-sm btn-info"> <i class="fa fa-edit"></i></a>
+                    <a href="/dosen/hapus/{{ dosen[0] }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+
+              {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

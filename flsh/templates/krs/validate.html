@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}Daftar Makul{% endblock %}
+
+{% block content %}
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">KRS Mahasiswa</h1>
+
+  <!-- DataTales Example -->
+  <form action="/krs/validasi/update/{{ data[0][1] }}" method="post">
+  <div class="card shadow mb-4">    
+    <div class="card-header py-3">
+      <button type="submit" class="btn btn-sm btn-primary float-right"> <i class="fa fa-check"></i> Acc KRS</button>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Mahasiswa</th>
+              <th>Matkul</th>
+              <th>SKS</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+                <th>Mahasiswa</th>
+                <th>Matkul</th>
+                <th>SKS</th>
+            </tr>
+          </tfoot>
+          <tbody>
+              {% for item in data %}
+              <tr>
+                <td>{{ item[6] }} - {{ item[7] }}</td>
+                <td>{{ item[10] }} - {{ item[11] }}</td>
+                <td>{{ item[3] }}</td>
+              </tr>
+
+              {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}
