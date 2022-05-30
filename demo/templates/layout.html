@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial- scale=1" />
+    <link href=https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css rel="stylesheet">
+{% block head %}
+{% endblock %}
+
+</head>
+<body>
+    <div class="container">
+        {% if session['rule'] == 'admin' %}
+        <h1>admin</h1>
+        {% endif%}
+        {% if session['rule'] == 'user' %}
+        <h1>user</h1>
+        {% endif%}
+        {% block body %}
+        {% endblock %}
+    </div>
+    <script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
